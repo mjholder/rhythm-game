@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://da0jscy7hotrt"]
+
+[node name="main" type="Node2D"]
+
+[node name="game-manager" type="Node2D" parent="."]
+
+[node name="canvas" type="CanvasLayer" parent="."]
+
+[node name="main-menu" type="Control" parent="canvas"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="level-parent" type="Node2D" parent="canvas"]
