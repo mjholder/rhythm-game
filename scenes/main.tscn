@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://da0jscy7hotrt"]
+[gd_scene load_steps=2 format=3 uid="uid://da0jscy7hotrt"]
+
+[ext_resource type="PackedScene" uid="uid://dhhutor1m45mo" path="res://scenes/main_menu_level.tscn" id="1_o5qli"]
 
 [node name="main" type="Node2D"]
 
@@ -23,3 +25,5 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="level-parent" type="Node2D" parent="canvas"]
+
+[node name="main-menu-level" parent="canvas/level-parent" instance=ExtResource("1_o5qli")]
