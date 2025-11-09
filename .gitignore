@@ -1,0 +1,43 @@
+# Godot 4+ specific ignores
+.godot/
+.import/
+*.tmp
+*.translation
+
+# Export directories
+/android/
+/ios/
+/web/
+/windows/
+/linux/
+/macos/
+
+# Export presets (optional - uncomment if you don't want to track export settings)
+# export_presets.cfg
+
+# OS-specific files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editor backup files
+*~
+*.swp
+*.swo
+*.bak
+
+# Build artifacts
+*.o
+*.so
+*.dll
+*.exe
+*.pck
+*.apk
+*.aab
+*.ipa
+*.app
