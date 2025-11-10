@@ -7,12 +7,12 @@
 [sub_resource type="LabelSettings" id="LabelSettings_0wfyh"]
 font = ExtResource("1_0wfyh")
 font_size = 168
-font_color = Color(1, 0, 1, 1)
+font_color = Color(0.6039216, 0, 1, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jyhfs"]
 font = ExtResource("1_0wfyh")
 font_size = 168
-font_color = Color(0, 1, 0, 1)
+font_color = Color(0.23213574, 0.73302835, 7.70092e-07, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_tbgi4"]
 font = ExtResource("1_0wfyh")
@@ -22,7 +22,7 @@ font_color = Color(1, 0, 0, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_tefeu"]
 font = ExtResource("1_0wfyh")
 font_size = 168
-font_color = Color(0, 0, 1, 1)
+font_color = Color(0.18609884, 3.85046e-07, 0.9610099, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_sugp2"]
 font = ExtResource("1_0wfyh")
@@ -52,8 +52,10 @@ offset_top = 128.0
 offset_bottom = 128.0
 grow_horizontal = 2
 script = ExtResource("1_sugp2")
+radius = 4.0
+offset = 8.0
 title = NodePath("title")
-shadows = [NodePath("shadow1"), NodePath("shadow2"), NodePath("shadow3"), NodePath("shadow4")]
+shadows = [NodePath("shadow4"), NodePath("shadow3"), NodePath("shadow2"), NodePath("shadow1")]
 
 [node name="shadow1" type="Label" parent="canvas/main-menu/title-control"]
 layout_mode = 1
