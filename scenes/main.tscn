@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://da0jscy7hotrt"]
+[gd_scene load_steps=5 format=3 uid="uid://da0jscy7hotrt"]
 
+[ext_resource type="FontFile" uid="uid://babentgqjula5" path="res://assets/fonts/ZenDots-Regular.ttf" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://dhhutor1m45mo" path="res://scenes/main_menu_level.tscn" id="1_o5qli"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_sugp2"]
+font = ExtResource("1_0wfyh")
+font_size = 168
+
+[sub_resource type="Theme" id="Theme_jyhfs"]
 
 [node name="main" type="Node2D"]
 
@@ -15,6 +22,113 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="canvas/main-menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="canvas/main-menu/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Control" type="Control" parent="canvas/main-menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="title" type="Label" parent="canvas/main-menu/MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -203.0
+offset_right = 320.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "RHYTHM+"
+label_settings = SubResource("LabelSettings_sugp2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow1" type="Label" parent="canvas/main-menu/MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -203.0
+offset_right = 320.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 0, 1, 1)
+text = "RHYTHM+"
+label_settings = SubResource("LabelSettings_sugp2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow2" type="Label" parent="canvas/main-menu/MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -203.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.051585644, 0.72183067, 0.66101277, 1)
+text = "RHYTHM+"
+label_settings = SubResource("LabelSettings_sugp2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow3" type="Label" parent="canvas/main-menu/MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -203.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "RHYTHM+"
+label_settings = SubResource("LabelSettings_sugp2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="shadow4" type="Label" parent="canvas/main-menu/MarginContainer/VBoxContainer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -203.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.9078879, 0, 0.26831695, 1)
+text = "RHYTHM+"
+label_settings = SubResource("LabelSettings_sugp2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="level-select-button" type="Button" parent="canvas/main-menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = SubResource("Theme_jyhfs")
+theme_override_fonts/font = ExtResource("1_0wfyh")
+theme_override_font_sizes/font_size = 72
+text = "LEVEL"
+
+[node name="options-button" type="Button" parent="canvas/main-menu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0wfyh")
+theme_override_font_sizes/font_size = 72
+text = "OPTIONS"
 
 [node name="pause-menu" type="Control" parent="canvas"]
 layout_mode = 3
