@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://da0jscy7hotrt"]
+[gd_scene load_steps=11 format=3 uid="uid://da0jscy7hotrt"]
 
 [ext_resource type="FontFile" uid="uid://babentgqjula5" path="res://assets/fonts/ZenDots-Regular.ttf" id="1_0wfyh"]
-[ext_resource type="PackedScene" uid="uid://dhhutor1m45mo" path="res://scenes/main_menu_level.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://b8pwejjn8km1h" path="res://scripts/game_manager.gd" id="1_jyhfs"]
 [ext_resource type="Script" uid="uid://bfe7k7gilwx7w" path="res://scripts/title_control.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://g0tyjwovx83a" path="res://scenes/clap_level.tscn" id="4_jyhfs"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0wfyh"]
 font = ExtResource("1_0wfyh")
@@ -32,7 +33,9 @@ font_size = 168
 
 [node name="main" type="Node2D"]
 
-[node name="game-manager" type="Node2D" parent="."]
+[node name="game-manager" type="Node2D" parent="." node_paths=PackedStringArray("current_level")]
+script = ExtResource("1_jyhfs")
+current_level = NodePath("../canvas/level-parent/clap-level")
 
 [node name="canvas" type="CanvasLayer" parent="."]
 
@@ -152,4 +155,4 @@ grow_vertical = 2
 
 [node name="level-parent" type="Node2D" parent="canvas"]
 
-[node name="main-menu-level" parent="canvas/level-parent" instance=ExtResource("1_o5qli")]
+[node name="clap-level" parent="canvas/level-parent" instance=ExtResource("4_jyhfs")]

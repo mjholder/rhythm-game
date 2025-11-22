@@ -1,0 +1,90 @@
+[gd_scene load_steps=12 format=3 uid="uid://g0tyjwovx83a"]
+
+[ext_resource type="Script" uid="uid://cagaabpccidbo" path="res://scripts/clap_level.gd" id="1_n53aj"]
+[ext_resource type="Texture2D" uid="uid://b4gdviuhocvxk" path="res://assets/sprites/level-1.png" id="2_nbl3j"]
+[ext_resource type="Texture2D" uid="uid://byqi7tj18d06n" path="res://assets/sprites/clap-hands.png" id="3_n53aj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n53aj"]
+atlas = ExtResource("3_n53aj")
+region = Rect2(960, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4585l"]
+atlas = ExtResource("3_n53aj")
+region = Rect2(0, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4yh8"]
+atlas = ExtResource("3_n53aj")
+region = Rect2(160, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybbq1"]
+atlas = ExtResource("3_n53aj")
+region = Rect2(320, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lf7n5"]
+atlas = ExtResource("3_n53aj")
+region = Rect2(480, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v68ft"]
+atlas = ExtResource("3_n53aj")
+region = Rect2(640, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ysf0g"]
+atlas = ExtResource("3_n53aj")
+region = Rect2(800, 0, 160, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yv1gb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n53aj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4585l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4yh8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybbq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lf7n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v68ft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ysf0g")
+}],
+"loop": false,
+"name": &"clap",
+"speed": 30.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="clap-level" type="Node2D" node_paths=PackedStringArray("clap_hands")]
+script = ExtResource("1_n53aj")
+clap_hands = NodePath("CanvasLayer/AnimatedSprite2D")
+metadata/_custom_type_script = "uid://broihcta7fr12"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_nbl3j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
+position = Vector2(1020, 824)
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_yv1gb")
+animation = &"clap"
+frame = 6
+frame_progress = 1.0
