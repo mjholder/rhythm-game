@@ -40,6 +40,7 @@ current_level = NodePath("../canvas/level-parent/main-menu-level")
 [node name="canvas" type="CanvasLayer" parent="."]
 
 [node name="main-menu" type="Control" parent="canvas"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -146,6 +147,14 @@ theme_override_font_sizes/font_size = 72
 text = "OPTIONS"
 
 [node name="pause-menu" type="Control" parent="canvas"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="level-select" type="Control" parent="canvas"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
