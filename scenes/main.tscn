@@ -33,10 +33,13 @@ font_size = 168
 
 [node name="main" type="Node2D"]
 
-[node name="game-manager" type="Node2D" parent="." node_paths=PackedStringArray("level_parent", "current_level")]
+[node name="game-manager" type="Node2D" parent="." node_paths=PackedStringArray("level_parent", "current_level", "main_menu", "level_select", "pause_menu")]
 script = ExtResource("1_jyhfs")
 level_parent = NodePath("../canvas/level-parent")
 current_level = NodePath("../canvas/level-parent/main-menu-level")
+main_menu = NodePath("../canvas/main-menu")
+level_select = NodePath("../canvas/level-select")
+pause_menu = NodePath("../canvas/pause-menu")
 
 [node name="canvas" type="CanvasLayer" parent="."]
 
