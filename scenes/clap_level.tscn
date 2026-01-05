@@ -1,10 +1,13 @@
-[gd_scene load_steps=22 format=3 uid="uid://g0tyjwovx83a"]
+[gd_scene load_steps=25 format=3 uid="uid://g0tyjwovx83a"]
 
 [ext_resource type="Script" uid="uid://cagaabpccidbo" path="res://scripts/clap_level.gd" id="1_n53aj"]
 [ext_resource type="Texture2D" uid="uid://b4gdviuhocvxk" path="res://assets/sprites/level-1.png" id="2_nbl3j"]
 [ext_resource type="Texture2D" uid="uid://byqi7tj18d06n" path="res://assets/sprites/clap-hands.png" id="3_n53aj"]
 [ext_resource type="AudioStream" uid="uid://dmfh8jghtjnmf" path="res://assets/sound/clap-song.mp3" id="4_4585l"]
 [ext_resource type="Texture2D" uid="uid://lptdur68gcji" path="res://assets/sprites/tv.png" id="4_p4yh8"]
+[ext_resource type="AudioStream" uid="uid://dpygxhhhnko3e" path="res://assets/sound/clap-player.mp3" id="6_v68ft"]
+[ext_resource type="AudioStream" uid="uid://dfu12kfngdulp" path="res://assets/sound/clap-reverb.mp3" id="7_ysf0g"]
+[ext_resource type="AudioStream" uid="uid://dvr4qao25wht8" path="res://assets/sound/clap-tv.mp3" id="8_1ttpw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ttpw"]
 atlas = ExtResource("4_p4yh8")
@@ -142,12 +145,12 @@ grow_vertical = 2
 texture = ExtResource("2_nbl3j")
 
 [node name="TV" type="AnimatedSprite2D" parent="CanvasLayer"]
-position = Vector2(994.0001, 657)
-scale = Vector2(3.7407408, 3.7407408)
+position = Vector2(960, 657)
+scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_4585l")
 
 [node name="PlayerHands" type="AnimatedSprite2D" parent="CanvasLayer"]
-position = Vector2(1020, 824)
+position = Vector2(960, 824)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_yv1gb")
 animation = &"clap"
@@ -156,3 +159,16 @@ frame_progress = 1.0
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_4585l")
+
+[node name="PlayerSFX" type="Node" parent="."]
+
+[node name="GoodSFX" type="AudioStreamPlayer" parent="PlayerSFX"]
+stream = ExtResource("6_v68ft")
+
+[node name="PerfectSFX" type="AudioStreamPlayer" parent="PlayerSFX"]
+stream = ExtResource("7_ysf0g")
+
+[node name="TVSFX" type="Node" parent="."]
+
+[node name="ClapSFX" type="AudioStreamPlayer" parent="TVSFX"]
+stream = ExtResource("8_1ttpw")
