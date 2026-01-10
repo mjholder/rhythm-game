@@ -1,0 +1,2 @@
+# Animation
+- With the clapping hands, I think it might be better to not have those be part of the tv sprite. That way they can bounce to the rhythm or anything else that we don't want to do to the whole TV.
