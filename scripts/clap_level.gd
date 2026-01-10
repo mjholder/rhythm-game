@@ -8,6 +8,10 @@ func play_song():
 	song_player.play()
 
 
+func get_accuracy() -> float:
+	return 0.0
+
+
 func on_action():
 	super.on_action()
 	if clap_hands.is_playing():
