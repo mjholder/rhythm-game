@@ -1,2 +1,3 @@
+# Index
 - [improvements for later](./improvements.md)
 - [ideas](./ideas.md)
