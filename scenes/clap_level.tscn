@@ -172,3 +172,5 @@ stream = ExtResource("7_ysf0g")
 
 [node name="ClapSFX" type="AudioStreamPlayer" parent="TVSFX"]
 stream = ExtResource("8_1ttpw")
+
+[connection signal="finished" from="MusicPlayer" to="." method="_on_music_player_finished"]

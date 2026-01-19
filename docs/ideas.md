@@ -10,3 +10,11 @@
         - Maybe a list of timestamps. For the TV, in _process(), we check if we are at the next note in the list and when we are within some window we clap. For the player we can just check on press.
         - If they miss a note or just stop playing then it will be out of sync
         - Maybe the checking of the note for the player will happen in _process too so it knows where the player should be. Then on action we see how close we are to the closest note
+    - Maybe store the tracks metadata in a JSON file.
+        - Track Name
+            - BPM
+            - Song Path
+            - Player Track
+            - Instructor Track
+- Replaying the tracks
+    - To do this I'm probably going to constantly check our current progress in the song. When it is >= to the next note, we "play" it and increment to the next note.
