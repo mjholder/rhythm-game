@@ -2,32 +2,43 @@ extends Level
 class_name ClapLevel
 
 @export var clap_hands: AnimatedSprite2D
-@export var song_player: AudioStreamPlayer
+@export var instructor_clap_hands: AnimatedSprite2D
 
-var _player_track: Array[float] = []
-var _instructor_track: Array[float] = []
+var instructor_index: int = 0
+var player_index: int = 0
 
-func play_song():
+func _ready():
+	track_name = "clap"
+
+func _process(delta: float):
+	if song_player.is_playing() and not _is_recording:
+		var time = get_time()
+		if player_index < _player_track.size() and player_track(_player_track, time, player_index):
+			player_index += 1
+			print("Player hit note at time: ", time)
+		if instructor_index < _instructor_track.size() and instructor_track(_instructor_track, time, instructor_index):
+			instructor_index += 1
+			print("Instructor hit note at time: ", time)
+			instructor_action()
+
+func instructor_action():
+	super.instructor_action()
+	if instructor_clap_hands.is_playing():
+		instructor_clap_hands.set_frame_and_progress(1, 1.0)
+	else:
+		instructor_clap_hands.play("clap")
+
+func play_song(player_track: Array[float], instructor_track: Array[float]):
+	_player_track = player_track
+	_instructor_track = instructor_track
 	song_player.play()
 
 func on_action():
 	super.on_action()
-
-	var time = song_player.get_playback_position() + AudioServer.get_time_since_last_mix()
-	# Compensate for output latency.
-	time -= AudioServer.get_output_latency()
-	print("Time is: ", time)
-	
-	if _is_recording:
-		if _is_player:
-			_player_track.append(time)
-		else:
-			_instructor_track.append(time)
 	if clap_hands.is_playing():
 		clap_hands.set_frame_and_progress(1, 1.0)
 	else:
 		clap_hands.play("clap")
-
 
 func _on_music_player_finished() -> void:
 	if _is_recording:

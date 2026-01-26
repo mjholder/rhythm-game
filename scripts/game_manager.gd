@@ -38,17 +38,30 @@ func select_level(level: Level) -> void:
 func _process(delta: float) -> void:
 	pass
 
+func process_track(track: Array):
+	var processed_track: Array[float] = []
+	for i in track:
+		processed_track.append(i)
+
+	return processed_track
+
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("action"):
 		current_level.on_action()
 	if event.is_action_pressed("record_player"):
+		var player_track: Array[float] = []
+		var instructor_track: Array[float] = []	
 		current_level.record_action_track(true)
-		current_level.play_song()
+		current_level.play_song(player_track, instructor_track)
 	if event.is_action_pressed("record_instructor"):
+		var instructor_track: Array[float] = []
+		var player_track: Array[float] = []
 		current_level.record_action_track(false)
-		current_level.play_song()
+		current_level.play_song(player_track, instructor_track)
 	if event.is_action_pressed("start"):
-		current_level.play_song()
+		var player_track: Array[float] = process_track(tracks["songs"][current_level.track_name]["player_track"])
+		var instructor_track: Array[float] = process_track(tracks["songs"][current_level.track_name]["instructor_track"])
+		current_level.play_song(player_track, instructor_track)
 
 func hide_all_menus() -> void:
 	main_menu.hide()

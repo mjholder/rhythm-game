@@ -9,6 +9,22 @@
 [ext_resource type="AudioStream" uid="uid://dfu12kfngdulp" path="res://assets/sound/clap-reverb.mp3" id="7_ysf0g"]
 [ext_resource type="AudioStream" uid="uid://dvr4qao25wht8" path="res://assets/sound/clap-tv.mp3" id="8_1ttpw"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_jdapa"]
+atlas = ExtResource("4_p4yh8")
+region = Rect2(1620, 0, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wikar"]
+atlas = ExtResource("4_p4yh8")
+region = Rect2(1080, 0, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdcir"]
+atlas = ExtResource("4_p4yh8")
+region = Rect2(1350, 0, 270, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yk6f7"]
+atlas = ExtResource("4_p4yh8")
+region = Rect2(1620, 0, 270, 270)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ttpw"]
 atlas = ExtResource("4_p4yh8")
 region = Rect2(0, 0, 270, 270)
@@ -17,35 +33,13 @@ region = Rect2(0, 0, 270, 270)
 atlas = ExtResource("4_p4yh8")
 region = Rect2(270, 0, 270, 270)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jdapa"]
-atlas = ExtResource("4_p4yh8")
-region = Rect2(540, 0, 270, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wikar"]
-atlas = ExtResource("4_p4yh8")
-region = Rect2(810, 0, 270, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cdcir"]
-atlas = ExtResource("4_p4yh8")
-region = Rect2(1080, 0, 270, 270)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_1l52y"]
 atlas = ExtResource("4_p4yh8")
-region = Rect2(1350, 0, 270, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yk6f7"]
-atlas = ExtResource("4_p4yh8")
-region = Rect2(1620, 0, 270, 270)
+region = Rect2(810, 0, 270, 270)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_4585l"]
 animations = [{
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1ttpw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yv1gb")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_jdapa")
 }, {
@@ -56,13 +50,29 @@ animations = [{
 "texture": SubResource("AtlasTexture_cdcir")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_1l52y")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_yk6f7")
 }],
 "loop": true,
+"name": &"clap",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ttpw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yv1gb")
+}],
+"loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1l52y")
+}],
+"loop": true,
+"name": &"wrong",
 "speed": 5.0
 }]
 
@@ -128,9 +138,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="clap-level" type="Node2D" node_paths=PackedStringArray("clap_hands", "song_player")]
+[node name="clap-level" type="Node2D" node_paths=PackedStringArray("clap_hands", "instructor_clap_hands", "song_player")]
 script = ExtResource("1_n53aj")
 clap_hands = NodePath("CanvasLayer/PlayerHands")
+instructor_clap_hands = NodePath("CanvasLayer/TV")
 song_player = NodePath("MusicPlayer")
 metadata/_custom_type_script = "uid://broihcta7fr12"
 
@@ -148,6 +159,9 @@ texture = ExtResource("2_nbl3j")
 position = Vector2(960, 657)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_4585l")
+animation = &"clap"
+frame = 1
+frame_progress = 0.94320357
 
 [node name="PlayerHands" type="AnimatedSprite2D" parent="CanvasLayer"]
 position = Vector2(960, 824)
