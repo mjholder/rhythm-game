@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://g0tyjwovx83a"]
+[gd_scene load_steps=26 format=3 uid="uid://g0tyjwovx83a"]
 
 [ext_resource type="Script" uid="uid://cagaabpccidbo" path="res://scripts/clap_level.gd" id="1_n53aj"]
 [ext_resource type="Texture2D" uid="uid://b4gdviuhocvxk" path="res://assets/sprites/level-1.png" id="2_nbl3j"]
@@ -33,6 +33,10 @@ region = Rect2(0, 0, 270, 270)
 atlas = ExtResource("4_p4yh8")
 region = Rect2(270, 0, 270, 270)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsnsy"]
+atlas = ExtResource("4_p4yh8")
+region = Rect2(540, 0, 270, 270)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1l52y"]
 atlas = ExtResource("4_p4yh8")
 region = Rect2(810, 0, 270, 270)
@@ -65,6 +69,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsnsy")
+}],
+"loop": true,
+"name": &"right",
 "speed": 5.0
 }, {
 "frames": [{
@@ -161,9 +173,7 @@ texture = ExtResource("2_nbl3j")
 position = Vector2(960, 657)
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_4585l")
-animation = &"clap"
-frame = 1
-frame_progress = 0.94320357
+animation = &"right"
 
 [node name="PlayerHands" type="AnimatedSprite2D" parent="CanvasLayer"]
 position = Vector2(960, 824)

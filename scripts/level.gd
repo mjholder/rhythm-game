@@ -34,8 +34,13 @@ func instructor_track(track: Array[float], time: float, index: int):
 		return true
 	return false
 
-func player_track(track: Array[float], time: float, index: int):
-	if time >= track[index]:
+func player_track(track: Array[float], time: float, window: float, index: int):
+	if time >= track[index] + (window / 2):
+		return true
+	return false
+
+func player_accuracy(track: Array[float], time: float, window: float, index: int):
+	if time >= track[index] - (window / 2) and time <= track[index] + (window / 2):
 		return true
 	return false
 

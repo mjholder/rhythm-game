@@ -6,6 +6,8 @@ class_name ClapLevel
 @export var clap_audio: AudioStreamPlayer
 @export var clap_reverb: AudioStreamPlayer
 
+@export var clap_window: float = 0.1
+
 var instructor_index: int = 0
 var player_index: int = 0
 
@@ -15,7 +17,7 @@ func _ready():
 func _process(delta: float):
 	if song_player.is_playing() and not _is_recording:
 		var time = get_time()
-		if player_index < _player_track.size() and player_track(_player_track, time, player_index):
+		if player_index < _player_track.size() and player_track(_player_track, time, clap_window, player_index):
 			player_index += 1
 			print("Player hit note at time: ", time)
 		if instructor_index < _instructor_track.size() and instructor_track(_instructor_track, time, instructor_index):
@@ -26,7 +28,7 @@ func _process(delta: float):
 func instructor_action():
 	super.instructor_action()
 	clap_reverb.play()
-	if instructor_clap_hands.is_playing():
+	if instructor_clap_hands.is_playing() and instructor_clap_hands.animation == "clap":
 		instructor_clap_hands.set_frame_and_progress(1, 1.0)
 	else:
 		instructor_clap_hands.play("clap")
@@ -39,10 +41,12 @@ func play_song(player_track: Array[float], instructor_track: Array[float]):
 func on_action():
 	super.on_action()
 	clap_audio.play()
-	if clap_hands.is_playing():
-		clap_hands.set_frame_and_progress(1, 1.0)
+
+	var time = get_time()
+	if player_accuracy(_player_track, time, clap_window, player_index):
+		instructor_clap_hands.play("right")
 	else:
-		clap_hands.play("clap")
+		instructor_clap_hands.play("wrong")
 
 func _on_music_player_finished() -> void:
 	if _is_recording:
