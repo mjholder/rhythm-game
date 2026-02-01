@@ -3,6 +3,8 @@ class_name ClapLevel
 
 @export var clap_hands: AnimatedSprite2D
 @export var instructor_clap_hands: AnimatedSprite2D
+@export var clap_audio: AudioStreamPlayer
+@export var clap_reverb: AudioStreamPlayer
 
 var instructor_index: int = 0
 var player_index: int = 0
@@ -23,6 +25,7 @@ func _process(delta: float):
 
 func instructor_action():
 	super.instructor_action()
+	clap_reverb.play()
 	if instructor_clap_hands.is_playing():
 		instructor_clap_hands.set_frame_and_progress(1, 1.0)
 	else:
@@ -35,6 +38,7 @@ func play_song(player_track: Array[float], instructor_track: Array[float]):
 
 func on_action():
 	super.on_action()
+	clap_audio.play()
 	if clap_hands.is_playing():
 		clap_hands.set_frame_and_progress(1, 1.0)
 	else:

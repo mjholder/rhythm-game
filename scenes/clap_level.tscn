@@ -138,10 +138,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="clap-level" type="Node2D" node_paths=PackedStringArray("clap_hands", "instructor_clap_hands", "song_player")]
+[node name="clap-level" type="Node2D" node_paths=PackedStringArray("clap_hands", "instructor_clap_hands", "clap_audio", "clap_reverb", "song_player")]
 script = ExtResource("1_n53aj")
 clap_hands = NodePath("CanvasLayer/PlayerHands")
 instructor_clap_hands = NodePath("CanvasLayer/TV")
+clap_audio = NodePath("PlayerSFX/GoodSFX")
+clap_reverb = NodePath("PlayerSFX/PerfectSFX")
 song_player = NodePath("MusicPlayer")
 metadata/_custom_type_script = "uid://broihcta7fr12"
 
