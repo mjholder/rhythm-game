@@ -6,7 +6,7 @@ class_name ClapLevel
 @export var clap_audio: AudioStreamPlayer
 @export var clap_reverb: AudioStreamPlayer
 
-@export var clap_window: float = 0.1
+@export var clap_window: float = 0.2
 
 var instructor_index: int = 0
 var player_index: int = 0
